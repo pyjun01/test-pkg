@@ -4,10 +4,6 @@
   "description": "test",
   "license": "MIT",
   "repository": "github:pyjun01/test-pkg",
-  "main": "dist/index.js",
-  "module": "dist/index.legacy-esm.js",
-  "types": "dist/index.d.ts",
-  "type": "module",
   "exports": {
     "./package.json": "./package.json",
     ".": {
