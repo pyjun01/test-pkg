@@ -4,7 +4,7 @@
   "description": "test",
   "license": "MIT",
   "repository": "github:pyjun01/test-pkg",
-  "main": "dist/cjs/index.cjs",
+  "main": "dist/index.js",
   "module": "dist/index.legacy-esm.js",
   "types": "dist/index.d.ts",
   "type": "module",
@@ -12,11 +12,11 @@
     "./package.json": "./package.json",
     ".": {
       "require": {
-        "types": "./dist/cjs/index.d.ts",
+        "types": "./dist/cjs/index.d.cts",
         "default": "./dist/cjs/index.cjs"
       },
       "import": {
-        "types": "./dist/index.d.mts",
+        "types": "./dist/index.d.ts",
         "default": "./dist/index.js"
       }
     }
