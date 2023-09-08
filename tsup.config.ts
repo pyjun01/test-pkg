@@ -15,8 +15,11 @@ export default defineConfig(options => {
       ...commonOptions,
       format: ['esm'],
       outExtension: () => ({ js: '.mjs' }),
-      dts: true,
       clean: true,
+      onSuccess() {
+        // Support Webpack 4 by pointing `"module"` to a file with a `.js` extension
+        return fs.promises.rename('dist/index.mjs', 'dist/index.legacy-esm.js')
+      }
     },
     // Browser-ready ESM, production + minified
     {
@@ -25,8 +28,9 @@ export default defineConfig(options => {
         'process.env.NODE_ENV': JSON.stringify('production')
       },
       format: ['esm'],
-      outExtension: () => ({ js: '.mjs' }),
-      minify: true
+      outExtension: () => ({ js: '.js' }),
+      minify: true,
+      dts: true,
     },
     {
       ...commonOptions,
