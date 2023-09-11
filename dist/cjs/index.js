@@ -39,3 +39,4 @@ function Counter() {
 0 && (module.exports = {
   Counter
 });
+//# sourceMappingURL=index.js.map

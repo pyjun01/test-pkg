@@ -28,16 +28,16 @@ export default defineConfig(options => {
         'process.env.NODE_ENV': JSON.stringify('production')
       },
       format: ['esm'],
-      outExtension: () => ({ js: '.js' }),
+      outDir: './dist/es/',
+      outExtension: () => ({ js: '.mjs' }),
+      dts: false,
       minify: true,
-      dts: true,
     },
     {
       ...commonOptions,
       format: 'cjs',
       outDir: './dist/cjs/',
-      outExtension: () => ({ js: '.cjs' }),
-      dts: true,
+      outExtension: () => ({ js: '.js' }),
     }
   ]
 })
