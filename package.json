@@ -4,17 +4,14 @@
   "description": "test",
   "license": "MIT",
   "repository": "github:pyjun01/test-pkg",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
   "exports": {
-    "./package.json": "./package.json",
     ".": {
-      "require": {
-        "types": "./dist/cjs/index.d.cts",
-        "default": "./dist/cjs/index.cjs"
-      },
-      "import": {
-        "types": "./dist/index.d.ts",
-        "default": "./dist/index.js"
-      }
+      "require": "./dist/index.js",
+      "import": "./dist/index.mjs",
+      "types": "./dist/index.d.ts"
     }
   },
   "files": [
@@ -32,7 +29,7 @@
     "test:watch": "vitest",
     "test:cov": "vitest --coverage",
     "test:typecheck": "tsc -p test && echo \"Types passed\"",
-    "build": "tsup",
+    "build": "tsup src/index.ts --format cjs,esm --dts --clean",
     "prepublishOnly": "yarn clean && yarn check-types && yarn format:check && yarn lint && yarn test",
     "prepack": "yarn build",
     "tsc": "tsc"

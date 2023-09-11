@@ -12,4 +12,3 @@ function Counter() {
 export {
   Counter
 };
-//# sourceMappingURL=index.mjs.map
